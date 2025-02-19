@@ -12,11 +12,12 @@ public class EmployeeRegistration {
     private String lastname;
     private String department;
     private String position;
-    private Long phonenumber;
+    private String phonenumber;
     private String email;
 
     @Enumerated(EnumType.STRING)  // Ensures stored values are "PENDING_VERIFICATION" or "VERIFIED"
     private EmployeeStatus status;
+    //employee.SetStatus(EmployeeStatus.PENDING_VERIFICATION);
 
     public String getFirstname() {
         return firstname;
@@ -50,11 +51,11 @@ public class EmployeeRegistration {
         this.position = position;
     }
 
-    public Long getPhonenumber() {
+    public String getPhonenumber() {
         return phonenumber;
     }
 
-    public void setPhonenumber(Long phonenumber) {
+    public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
     }
 

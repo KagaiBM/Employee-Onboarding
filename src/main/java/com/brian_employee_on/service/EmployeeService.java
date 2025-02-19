@@ -14,8 +14,9 @@ import java.util.List;
 public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
-    //onboard/create employee
-    public Employee registerEmployee(EmployeeRegistration employeeRegistration){
+
+    //onboard or create employee
+    public Employee registerEmployee(EmployeeRegistration employeeRegistration) {
         Employee employee = new Employee();
         employee.setFirstname(employeeRegistration.getFirstname());
         employee.setLastname(employeeRegistration.getLastname());
@@ -26,11 +27,13 @@ public class EmployeeService {
 
         return employeeRepository.save(employee);
     }
+
     public Employee getEmployeeById(Integer id) {
-        return employeeRepository.findById(id).orElseThrow(()->new RuntimeException("Employee not found"));
+        return employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee not found"));
     }
-    //edit employee information
-    public Employee updateEmployee(Integer id, EmployeeDetails employeeDetails){
+
+    //edit employee information. verified employees' records cannot be updated. modify the controller as well
+    public Employee updateEmployee(Integer id, EmployeeDetails employeeDetails) {
         Employee employee = getEmployeeById(id);
         if (employee.getStatus() == EmployeeStatus.VERIFIED) {
             throw new IllegalStateException("Verified employees cannot be edited.");
@@ -70,6 +73,7 @@ public class EmployeeService {
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
+    //verify employee method
 
     public Employee verifyEmployee(Integer id) {
         Employee employee = employeeRepository.findById(id)
@@ -82,6 +86,8 @@ public class EmployeeService {
         employee.setStatus(EmployeeStatus.VERIFIED);
         return employeeRepository.save(employee);
     }
-
-
+    public List<Employee> getEmployeeByStatus(EmployeeStatus status){
+        return employeeRepository.findByStatus(status);
+    }
 }
+

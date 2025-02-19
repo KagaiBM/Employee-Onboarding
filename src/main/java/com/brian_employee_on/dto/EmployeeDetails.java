@@ -1,7 +1,7 @@
 package com.brian_employee_on.dto;
 
 import lombok.Data;
-import org.springframework.stereotype.Component;
+
 @Data
 //create a constructor
 public class EmployeeDetails {
@@ -9,10 +9,10 @@ public class EmployeeDetails {
     private String lastname;
     private String department;
     private String position;
-    private Long phonenumber;
+    private String phonenumber;
     private String email;
 
-    public EmployeeDetails(String firstname, String lastname, String department, String position, Long phonenumber, String email){
+    public EmployeeDetails(String firstname, String lastname, String department, String position, String phonenumber, String email){
         this.firstname = firstname;
         this.lastname = lastname;
         this.department = department;
@@ -44,10 +44,10 @@ public class EmployeeDetails {
     public void setPosition(String position) {
         this.position = position;    }
 
-    public Long getPhonenumber() {
+    public String getPhonenumber() {
         return phonenumber;    }
 
-    public void setPhonenumber(Long phonenumber) {
+    public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;    }
 
     public String getEmail() {

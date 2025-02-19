@@ -49,7 +49,8 @@ public class SecurityConfig {
                                 "/swagger-ui/index",
                                 "/auth/**","/auth/login",
                                 "/employees/**",
-                                "/auth/register"
+                                "/auth/register",
+                                "/{id}/verify"
 
                         ).permitAll()
                         .anyRequest().authenticated()
