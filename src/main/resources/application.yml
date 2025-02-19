@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/employee_onboarding
+    url: jdbc:mysql://localhost:3306/employee_onboarding    //employee_onboarding is the name of mysql database
     username: root
-    password: "@Djob1234"
+    password: "***"   //change to your db password
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
